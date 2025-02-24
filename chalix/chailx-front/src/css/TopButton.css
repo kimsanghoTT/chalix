@@ -1,0 +1,18 @@
+.top-button{
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 50;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    display: inline-block;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 0 0 1px #dadcdf, 0 4px 8px 0 rgba(0, 0, 0, .3);
+    box-shadow: 0 0 0 1px #dadcdf, 0 4px 8px #0000004d;
+    background-color: #f7f7f8;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}

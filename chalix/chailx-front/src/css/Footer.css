@@ -1,0 +1,28 @@
+footer{
+    display: flex;
+    padding: 20px 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-logo{
+    width: 7%;
+}
+
+.footer-logo img{
+    width: 100%;
+}
+
+.footer-modal{
+    width: 9%;
+    color: rgb(185, 183, 179);
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+}
+
+.footer-info{
+    width: 80%;
+    color: rgb(185, 183, 179);
+    font-weight: bold;
+}
