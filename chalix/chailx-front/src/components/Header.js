@@ -6,37 +6,26 @@ import gsap from 'gsap';
 function Header() {
     const [isHovered, setIsHovered] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
-    const [isAtTop, setIsAtTop] = useState(true); 
     const [isVisible, setIsVisible] = useState(true);  
-    const [lastScrollY, setLastScrollY] = useState(0); 
+    const [lastScroll, setLastScroll] = useState(0); 
 
     useEffect(() => {
         const handleScroll = () => {
-            const currentScrollY = window.scrollY;
+            const currentScroll = window.scrollY;
 
-            if (currentScrollY === 0) {
-                setIsAtTop(true);
-            } else {
-                setIsAtTop(false);
+            setIsScrolled(currentScroll); 
+            setLastScroll(currentScroll);
+            if(currentScroll <= lastScroll){
+                setIsVisible(true);
             }
-
-            if (currentScrollY > 10) {
-                setIsScrolled(true); 
-            } else {
-                setIsScrolled(false); 
+            else{
+                setIsVisible(false);
             }
-
-            if (currentScrollY > lastScrollY) {
-                setIsVisible(false); 
-            } else {
-                setIsVisible(true); 
-            }
-
-            setLastScrollY(currentScrollY);  
         };
 
         window.addEventListener('scroll', handleScroll);
-    }, [lastScrollY]);
+        return () => window.removeEventListener('scroll', handleScroll); // cleanup
+    }, [lastScroll]);
 
     const mouseHover = () => {
         setIsHovered(true);
@@ -44,46 +33,36 @@ function Header() {
         gsap.to(".menu-title a", { color: "black", duration: 0.5 });
         gsap.to(".contact a", { color: "black", duration: 0.5 });
         gsap.to(".contact", { borderColor: "black", duration: 0.5 });
+
+        gsap.to(".menu-lists", {
+            duration: 0.5, height: "200px", opacity: 1, ease: "power1.out"
+        });
     };
 
     const mouseLeave = () => {
         setIsHovered(false);
+        gsap.to(".header-container", { backgroundColor: "transparent", color: "white", duration: 0.5 });
+        gsap.to(".menu-title a", { color: "white", duration: 0.5 });
+        gsap.to(".contact a", { color: "white", duration: 0.5 });
+        gsap.to(".contact", { borderColor: "white", duration: 0.5 });
 
-            gsap.to(".header-container", { backgroundColor: "transparent", duration: 0.5 });
-            gsap.to(".menu-title a", { color: "white", duration: 0.5 });
-            gsap.to(".contact a", { color: "white", duration: 0.5 });
-            gsap.to(".contact", { borderColor: "white", duration: 0.5 });
-
+        gsap.to(".menu-lists", {
+            duration: 0.5, height: 0, opacity: 0, ease: "power1.in"
+        });
     };
 
     useEffect(() => {
-        if (isScrolled && isVisible) {
-            gsap.to(".header-container", { backdropFilter: "blur(5px)", color: "white", duration: 0.5 });  
-            gsap.to(".menu-title a", { color: "white", duration: 0.5 });
-            gsap.to(".contact a", { color: "white", duration: 0.5 });
-            gsap.to(".contact", { borderColor: "white", duration: 0.5 });
-        } else {
-            if (isAtTop && !isHovered && isVisible) {
-                gsap.to(".header-container", { backgroundColor: "transparent", color: "white", duration: 0.5 });
-                gsap.to(".menu-title a", { color: "white", duration: 0.5 });
-                gsap.to(".contact a", { color: "white", duration: 0.5 });
-                gsap.to(".contact", { borderColor: "white", duration: 0.5 });
-            }
-        }
-    }, [isScrolled, isHovered, isAtTop, isVisible]);
-
-    useEffect(() => {
-        if (isAtTop && !isHovered && isVisible) {
+        if (!isHovered) {
             gsap.to(".header-container", { backgroundColor: "transparent", color: "white", duration: 0.5 });
             gsap.to(".menu-title a", { color: "white", duration: 0.5 });
             gsap.to(".contact a", { color: "white", duration: 0.5 });
             gsap.to(".contact", { borderColor: "white", duration: 0.5 });
         }
-    }, [isAtTop]);
+    }, [isScrolled, isHovered, isVisible]);
 
     return (
         <header 
-            className={`header-container ${isScrolled && !isAtTop ? 'scrolled' : ''} ${isVisible ? 'visible' : 'hidden'}`} 
+            className={`header-container ${isVisible ? 'visible' : 'hidden'}`} 
             onMouseEnter={mouseHover} 
             onMouseLeave={mouseLeave}
         >
@@ -96,7 +75,7 @@ function Header() {
                         <div className="menu-title">
                             <a href="/">WHO WE ARE</a>
                         </div>
-                        <ul className={`menu-lists ${isHovered ? 'show' : ''}`}>
+                        <ul className={`menu-lists ${isHovered ? 'show' : ''}`} style={{borderRight:"1px solid #aaaaaa", borderLeft:"1px solid #aaaaaa"}}>
                             <li className="content"><Link to="/">CAIT VALUE</Link></li>
                             <li className="content"><Link to="/">CEO 메시지</Link></li>
                             <li className="content"><Link to="/">연혁</Link></li>
@@ -106,7 +85,7 @@ function Header() {
                         <div className="menu-title">
                             <a href="/">WHAT WE CAN</a>
                         </div>
-                        <ul className={`menu-lists ${isHovered ? 'show' : ''}`}>
+                        <ul className={`menu-lists ${isHovered ? 'show' : ''}`} style={{borderRight:"1px solid #aaaaaa"}}>
                             <li className="content"><Link to="/">컨설팅부</Link></li>
                             <li className="content"><Link to="/">글로벌연구센터</Link></li>
                             <li className="content"><Link to="/">정책연구부</Link></li>
@@ -117,7 +96,7 @@ function Header() {
                         <div className="menu-title">
                             <a href="/">WHAT WE DO</a>
                         </div>
-                        <ul className={`menu-lists ${isHovered ? 'show' : ''}`}>
+                        <ul className={`menu-lists ${isHovered ? 'show' : ''}`} style={{borderRight:"1px solid #aaaaaa"}}>
                             <li className="content"><Link to="/">사업실적</Link></li>
                             <li className="content"><Link to="/board">발표논문</Link></li>
                             <li className="content"><Link to="/">NEWS</Link></li>
