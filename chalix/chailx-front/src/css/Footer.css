@@ -1,9 +1,8 @@
 footer{
     display: flex;
-    padding: 20px 50px;
+    padding: 20px 20px;
     align-items: center;
     justify-content: center;
-    position: fixed;
     bottom: 0;  
     left: 0;
     right: 0;
@@ -12,7 +11,7 @@ footer{
 }
 
 .footer-logo{
-    width: 7%;
+    width: 6%;
 }
 
 .footer-logo img{

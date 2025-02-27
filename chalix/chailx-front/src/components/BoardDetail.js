@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import OverlayImage from "./OverlayImage";
 
 const BoardDetail = () => {
     const location = useLocation();
@@ -20,15 +21,23 @@ const BoardDetail = () => {
     };
 
     return (
-        <div>
-            <h2>{post.brd_title}</h2>
-            <p><strong>번호:</strong> {post.brd_idx}</p>
-            <p><strong>학술대회명:</strong> {post.brd_ext2}</p>
-            <p><strong>날짜:</strong> {post.reg_datetime}</p>
-            <p><strong>비고:</strong> {post.brd_ext1}</p>
+        <div className="boardPage-container">
+            <OverlayImage />
+            <div className="board-detail-container">
+                <div className="postingForm">
+                    <h2>{post.brd_title}</h2>
+                    <p><strong>번호:</strong> {post.brd_idx}</p>
+                    <p><strong>학술대회명:</strong> {post.brd_ext2}</p>
+                    <p><strong>날짜:</strong> {post.reg_datetime}</p>
+                    <p><strong>비고:</strong> {post.brd_ext1}</p>
 
-            <button onClick={updatePost}>수정</button>
-            <button onClick={deletePost}>삭제</button>
+                    <div className="button-group">
+                        <button onClick={updatePost} className="update-button">수정</button>
+                        <button onClick={deletePost} className="delete-button">삭제</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 };
