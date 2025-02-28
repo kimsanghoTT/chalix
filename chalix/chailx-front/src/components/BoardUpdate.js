@@ -36,20 +36,28 @@ const BoardUpdate = () => {
         <div className="boardPage-container">
             <OverlayImage />
             <div className="board-update-container">
-                <div className="postingForm">
+                <h1>논문 정보 수정</h1>
+                <div className="posting-form">
                     <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>학술대회명:</label>
-                            <input type="text" value={brd_ext2} onChange={(e) => setBrd_ext2(e.target.value)} className="board-input" />
-                        </div>
-                        <div>
-                            <label>논문명:</label>
-                            <input type="text" value={brd_title} onChange={(e) => setBrd_title(e.target.value)} className="board-input" />
-                        </div>
-                        <div>
-                            <label>비고:</label>
-                            <input type="text" value={brd_ext1} onChange={(e) => setBrd_ext1(e.target.value)} className="board-input" />
-                        </div>
+                        <table className="posting-table">
+                            <tr>
+                                <td>
+                                    <input type="text" value={brd_ext2}
+                                        onChange={(e) => setBrd_ext2(e.target.value)}
+                                        className="board-input" placeholder="학술대회명" />
+                                </td>
+                                <td>
+                                    <input type="text" value={brd_title}
+                                        onChange={(e) => setBrd_title(e.target.value)}
+                                        className="board-input" placeholder="논문명" />
+                                </td>
+                                <td>
+                                    <input type="text" value={brd_ext1}
+                                        onChange={(e) => setBrd_ext1(e.target.value)}
+                                        className="board-input" placeholder="비고(국내/해외)" />
+                                </td>
+                            </tr>
+                        </table>
                         <button type="submit" className="submit-button">수정하기</button>
                     </form>
                 </div>

@@ -58,6 +58,9 @@ function Header() {
             gsap.to(".contact a", { color: "white", duration: 0.5 });
             gsap.to(".contact", { borderColor: "white", duration: 0.5 });
         }
+        if (isVisible) {
+            gsap.to(".header-container", { backdropFilter: "blur(50px) brightness(0.7)", duration: 0.5 });
+        }
     }, [isScrolled, isHovered, isVisible]);
 
     return (

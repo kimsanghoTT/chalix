@@ -1,7 +1,8 @@
-import moment, { now } from "moment";
-import React, { useState } from "react";
+import moment from "moment";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import OverlayImage from "./OverlayImage";
+import gsap from "gsap";
 
 const BoardUpload = () => {
     const [brd_title, setBrd_title] = useState("");
@@ -11,6 +12,11 @@ const BoardUpload = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if(brd_ext2 === '' || brd_title === '' || brd_ext1 === ''){
+            alert("모든 항목을 작성해주세요.");
+            return;
+        }
 
         const storedList = JSON.parse(localStorage.getItem("boardList")) || [];
 
@@ -33,20 +39,28 @@ const BoardUpload = () => {
         <div className="boardPage-container">
             <OverlayImage />
             <div className="board-upload-container">
-                <div className="postingForm">
+                <div className="posting-form">
+                    <h1 style={{color:"#111111"}}>논문 추가</h1>
                     <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>학술대회명:</label>
-                            <input type="text" value={brd_ext2} onChange={(e) => setBrd_ext2(e.target.value)} className="board-input" />
-                        </div>
-                        <div>
-                            <label>논문명:</label>
-                            <input type="text" value={brd_title} onChange={(e) => setBrd_title(e.target.value)} className="board-input" />
-                        </div>
-                        <div>
-                            <label>비고:</label>
-                            <input type="text" value={brd_ext1} onChange={(e) => setBrd_ext1(e.target.value)} className="board-input" />
-                        </div>
+                        <table className="posting-table">
+                            <tr>
+                                <td>
+                                    <input type="text" value={brd_ext2}
+                                        onChange={(e) => setBrd_ext2(e.target.value)} 
+                                        className="board-input" placeholder="학술대회명" />
+                                </td>
+                                <td>
+                                    <input type="text" value={brd_title}
+                                        onChange={(e) => setBrd_title(e.target.value)} 
+                                        className="board-input" placeholder="논문명" />
+                                </td>
+                                <td>
+                                    <input type="text" value={brd_ext1}
+                                        onChange={(e) => setBrd_ext1(e.target.value)} 
+                                        className="board-input" placeholder="비고(국내/해외)" />
+                                </td>
+                            </tr>
+                        </table>
                         <button type="submit" className="submit-button">추가</button>
                     </form>
                 </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import OverlayImage from "./OverlayImage";
+import moment from "moment";
 
 const BoardDetail = () => {
     const location = useLocation();
@@ -20,24 +21,37 @@ const BoardDetail = () => {
         navigate(`/board/update/${post.brd_idx}`, { state: post });
     };
 
+    const timeFormat = (time) => {
+        return moment(time).format("YYYY-MM-DD");
+    }
+
     return (
         <div className="boardPage-container">
             <OverlayImage />
             <div className="board-detail-container">
-                <div className="postingForm">
-                    <h2>{post.brd_title}</h2>
-                    <p><strong>번호:</strong> {post.brd_idx}</p>
-                    <p><strong>학술대회명:</strong> {post.brd_ext2}</p>
-                    <p><strong>날짜:</strong> {post.reg_datetime}</p>
-                    <p><strong>비고:</strong> {post.brd_ext1}</p>
+                <div className="posting-form">
+                    <h1>{post.brd_title}</h1>
+                    <div className="detail-container">
+                        <div className="items">
+                            <div>번호:</div>
+                            <div>대회명:</div>
+                            <div>날짜:</div>
+                            <div>비고:</div>
+                        </div>
+                        <div className="details">
+                            <div>{post.brd_idx}</div>
+                            <div>{post.brd_ext2}</div>
+                            <div>{timeFormat(post.reg_datetime)}</div>
+                            <div>{post.brd_ext1}</div>
+                        </div>
+                    </div>
 
                     <div className="button-group">
                         <button onClick={updatePost} className="update-button">수정</button>
                         <button onClick={deletePost} className="delete-button">삭제</button>
                     </div>
-                </div>
-            </div>
-
+                </div >
+            </div >
         </div>
     );
 };
