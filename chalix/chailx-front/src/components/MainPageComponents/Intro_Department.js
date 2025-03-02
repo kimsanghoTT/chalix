@@ -22,10 +22,9 @@ const Intro_Department = () => {
             }
         );
 
-        gsap.fromTo(".depart-explain", 
-            { width: "42%" },  // 초기 부모 요소의 너비 설정
+        gsap.fromTo(".depart-explain", { width: "42%" },  
             {
-                width: "24%",    // 스크롤 진행에 따라 부모 요소 너비를 축소
+                width: "24%",    
                 duration: 1,
                 scrollTrigger: {
                     trigger: ".depart-explain", 
