@@ -1,13 +1,13 @@
 import React from "react";
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import MainPage from "./components/MainPage";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Board from "./components/Board";
-import TopButton from "./components/TopButton";
-import BoardDetail from "./components/BoardDetail";
-import BoardUpload from "./components/BoardUpload";
-import BoardUpdate from "./components/BoardUpdate";
+import MainPage from "./components/MainPageComponents/MainPage";
+import Header from "./components/LayoutComponents/Header";
+import Footer from "./components/LayoutComponents/Footer";
+import Board from "./components/BoardComponents/Board";
+import TopButton from "./components/LayoutComponents/TopButton";
+import BoardDetail from "./components/BoardComponents/BoardDetail";
+import BoardUpload from "./components/BoardComponents/BoardUpload";
+import BoardUpdate from "./components/BoardComponents/BoardUpdate";
 
 
 function App() {

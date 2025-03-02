@@ -1,0 +1,148 @@
+/* 메인 페이지 전체 */
+.mainPage-container{
+    width: 100%;
+    height: 100%;
+}
+
+/* 비디오 + 오버레이 텍스트 + 오버레이 링크 */
+.video-container {
+    width: 100%;
+    height: 900px; 
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.video-overlay-text {
+    position: absolute;
+    color: white;
+    font-size: 43px;
+    font-weight: 750;
+    top: 70%;
+    left: 2%;
+}
+
+.video-overlay-text p {
+    margin: 0;
+}
+
+.video-overlay-link {
+    position: absolute;
+    bottom: 0;
+    font-size: 17px;
+    display: flex;
+    width: 100%;
+}
+
+.overlay-link-text {
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    justify-content: space-between;
+    border-top: 1px solid rgb(158, 158, 158);
+    padding: 26px 0;
+}
+
+.overlay-link-text a {
+    text-decoration: none;
+    color: rgb(158, 158, 158);
+}
+
+.overlay-link-text a:hover {
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.bold a {
+    color: white;
+    font-weight: 700;
+}
+
+.bold {
+    border-top: 3px solid white;
+}
+
+/* 부서소개 */
+.department-container {
+    margin-top: 300px;
+    padding-left: 50px;
+    overflow-x: hidden;
+}
+
+.intro-mention h2 {
+    font-weight: normal;
+    color: rgb(117, 117, 117);
+    margin-bottom: 7px;
+}
+
+.intro-mention p {
+    font-size: 40px;
+    font-weight: 550;
+    margin: 0;
+}
+
+.depart-images-container {
+    margin-top: 30px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    gap: 20px;
+}
+
+.depart-explain {
+    flex-shrink: 0;
+    position: relative;
+    cursor: pointer;
+    filter: brightness(0.7);
+    width: 42%; 
+    height: 600px;
+}
+
+.depart-explain:hover {
+    filter: brightness(1);
+}
+
+.depart-explain img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform-origin: left center; 
+}
+
+.depart-explain h2 {
+    width: 100%;
+    font-weight: bold;
+    position: absolute;
+    font-size: 40px;
+    top: 6%;
+    left: 7%;
+    color: white;
+    margin: 0;
+}
+
+.depart-explain p {
+    font-size: 18px;
+    width: 300px;
+    position: absolute;
+    top: 20%;
+    left: 7%;
+    color: white;
+    margin: 0;
+}
+
+
+/* 뉴스 안내 */
+.news-container{
+    width: 100%;
+    height: 900px;
+}
+
+/* 실적 안내 */
+.presentation-container{
+    width: 100%;
+    height: 900px;
+}
