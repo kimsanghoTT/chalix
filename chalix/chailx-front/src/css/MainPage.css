@@ -142,7 +142,54 @@
 }
 
 /* 실적 안내 */
-.presentation-container{
+.performance-container {
     width: 100%;
-    height: 900px;
+    height: 950px;
+    background-color: rgb(29, 29, 29);
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.performance-images {
+    display: flex;
+    position: absolute; 
+}
+
+.performance-images img {
+    width: 20%;
+    height: 400px;
+}
+
+.performance-overlay-text {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    text-align: center;
+    color: white;
+    z-index: 10; 
+    transform: translate(-50%, -50%);
+}
+
+.performance-overlay-text p {
+    font-size: 70px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.performance-overlay-text button {
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 30px;
+    font-size: 20px;
+}
+
+.performance-overlay-text button:hover {
+    background-color: rgb(59, 59, 59);
+    transition: background-color 0.3s ease;
 }
