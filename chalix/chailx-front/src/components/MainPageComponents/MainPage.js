@@ -1,18 +1,18 @@
 import React from "react";
 import "../../css/MainPage.css";
 import MainPageOverlayVideo from "./MainPageOverlayVideo";
-import Intro_Department from "./Intro_Department";
-import Intro_News from "./Intro_News";
-import Intro_Performance from "./Intro_Performance";
+import IntroDepartment from "./IntroDepartment";
+import IntroPatterns from "./IntroPatterns";
+import IntroPerformance from "./IntroPerformance";
 
 const MainPage = () => {
 
     return(
         <div className="mainPage-container">
             <MainPageOverlayVideo/>
-            <Intro_Department/>
-            <Intro_News/>
-            <Intro_Performance/>
+            <IntroDepartment/>
+            <IntroPatterns/>
+            <IntroPerformance/>
         </div>
     )
 }

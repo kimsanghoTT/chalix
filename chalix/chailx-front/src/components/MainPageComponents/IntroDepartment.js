@@ -2,6 +2,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import React, { useEffect } from "react";
 import "../../css/MainPage.css";
 import gsap from "gsap";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const Intro_Department = () => {
@@ -30,7 +31,7 @@ const Intro_Department = () => {
                     trigger: ".depart-explain", 
                     start: "top 60%",
                     end: "top 50%r",
-                    scrub: 1,
+                    scrub: 5,
                     markers: false,
                 },
             }
@@ -47,7 +48,7 @@ const Intro_Department = () => {
             </div>
             <div className="depart-images-container">
                 <div className="depart-explain">
-                    <img src="/images/scale1.jpg" />
+                    <img src="/images/scale1.jpg" alt="scale1"/>
                     <h2>컨설팅부</h2>
                     <p>
                         다양한 경험과 노하우를 바탕으로 기후변화 대응 최적전략 수립 및 탄소배출권 관리
@@ -55,7 +56,7 @@ const Intro_Department = () => {
                     </p>
                 </div>
                 <div className="depart-explain">
-                    <img src="/images/scale2.jpg" />
+                    <img src="/images/scale2.jpg" alt="scale2"/>
                     <h2>글로벌연구센터</h2>
                     <p>
                         기후변화 대응 및 ESG 경영 선도를 위해 국제개발협력, 정책연구,
@@ -63,7 +64,7 @@ const Intro_Department = () => {
                     </p>
                 </div>
                 <div className="depart-explain">
-                    <img src="/images/scale3.jpg" />
+                    <img src="/images/scale3.jpg" alt="scale3"/>
                     <h2>정책연구부</h2>
                     <p>
                         국가, 지방자치단체, 사업장 등이 환경분야 및 기후변화에 선도적으로 대응할 수 있도록
@@ -71,7 +72,7 @@ const Intro_Department = () => {
                     </p>
                 </div>
                 <div className="depart-explain">
-                    <img src="/images/scale4.jpg" />
+                    <img src="/images/scale4.jpg" alt="scale4"/>
                     <h2>기술개발부</h2>
                     <p>
                         세균 및 바이러스 제거, 지속적인 효과, 환경 친화적인 항균 · 항바이러스 나노물질의 개발로
