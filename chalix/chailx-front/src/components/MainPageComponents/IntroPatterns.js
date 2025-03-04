@@ -16,8 +16,7 @@ const Intro_Patterns = () => {
 
       element.innerHTML = chars; 
 
-      gsap.fromTo(
-        element.querySelectorAll(".char"), 
+      gsap.fromTo(element.querySelectorAll(".char"), 
         {
           opacity: 0,
           x: -50,
